@@ -66,6 +66,54 @@ This workflow seamlessly connects **AI reasoning** with **calendar automation**,
 
 ---
 
-## 🧠 Example Scenario
 
-**Conversation Example**
+**System Behavior**
+1. Extracts all required details from the transcript.  
+2. Checks the Google Calendar for any existing booking at 5 PM.  
+3. Books the appointment if the slot is available.  
+4. Responds:  
+   “Your booking was successful! You’re scheduled for today at 5 PM. We’ll send a confirmation shortly.”
+
+---
+
+## 🛠️ Tech Stack
+
+- [n8n](https://n8n.io/) – Workflow automation platform  
+- [LangChain](https://www.langchain.com/) – AI agent orchestration  
+- [OpenAI GPT-4.1-mini](https://platform.openai.com/) – Natural language understanding  
+- [Google Calendar API](https://developers.google.com/calendar) – Scheduling automation  
+- [Twilio](https://www.twilio.com/) / [Retell AI](https://www.retellai.com/) – Voice integration
+
+---
+
+## ⚙️ Setup Guide
+
+1. **Import the Workflow**  
+   Upload the provided `Voice Agent.json` into your n8n instance.
+
+2. **Configure Credentials**
+   - Connect **Google Calendar OAuth2 API** credentials.
+   - Add **OpenAI API Key** credentials.
+   - (Optional) Connect Twilio or Retell webhook for voice input.
+
+3. **Update Webhook URL**
+   Replace the webhook URL with your n8n public endpoint.
+
+4. **Activate Workflow**
+   Enable it and test using a sample JSON payload or real voice call.
+
+---
+
+## 🧰 Example Payload
+Example input received by the webhook:
+```json
+{
+  "call": {
+    "transcript": "Hi, I’d like to book a technician for my oven today at 5 PM. My name is John. My number is 224-668.",
+    "args": {
+      "intent": "book_appointment",
+      "preferred_time": "2025-10-03T17:00:00+05:30"
+    }
+  }
+}
+
