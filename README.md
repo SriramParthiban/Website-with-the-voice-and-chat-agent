@@ -102,18 +102,3 @@ This workflow seamlessly connects **AI reasoning** with **calendar automation**,
 4. **Activate Workflow**
    Enable it and test using a sample JSON payload or real voice call.
 
----
-
-## 🧰 Example Payload
-Example input received by the webhook:
-```json
-{
-  "call": {
-    "transcript": "Hi, I’d like to book a technician for my oven today at 5 PM. My name is John. My number is 224-668.",
-    "args": {
-      "intent": "book_appointment",
-      "preferred_time": "2025-10-03T17:00:00+05:30"
-    }
-  }
-}
-
